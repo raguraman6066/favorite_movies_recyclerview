@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,6 +56,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
             p = itemView.findViewById(R.id.movie_poster_image);
             m = itemView.findViewById(R.id.movie_name_tv);
             a = itemView.findViewById(R.id.movie_actor_tv);
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    int pos=getAdapterPosition();
+                    Toast.makeText(context,movies[pos], Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
     }
